@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Мой сайт</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #0f0f1a;
+    color: white;
+}
+
+/* NAV */
+header, footer {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 15px;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(10px);
+    position: sticky;
+}
+
+header { top: 0; }
+footer { bottom: 0; }
+
+nav a {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.05);
+}
+
+nav a:hover {
+    background: rgba(255,255,255,0.15);
+}
+
+/* SECTIONS */
+.section {
+    display: none;
+    padding: 40px 20px;
+    text-align: center;
+    min-height: 60vh;
+}
+
+.section.active {
+    display: block;
+}
+
+/* VIDEO */
+.video-box {
+    margin-top: 20px;
+}
+
+/* PHOTOS */
+.photos {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.photos img {
+    width: 250px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.photos img:hover {
+    transform: scale(1.05);
+}
+
+/* HERO */
+.hero {
+    padding: 60px 20px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <a onclick="show('home')">Главная</a>
+        <a onclick="show('video')">Видео</a>
+        <a onclick="show('photos')">Фотки</a>
+        <a onclick="show('donate')">Донат</a>
+    </nav>
+</header>
+
+<!-- HOME -->
+<div id="home" class="section active">
+    <div class="hero">
+        <h2>🔥 Мой сайт</h2>
+        <p>Красивый, простой и рабочий</p>
+    </div>
+</div>
+
+<!-- VIDEO -->
+<div id="video" class="section">
+    <h2>🎬 Видео</h2>
+
+    <div class="video-box">
+        <video controls width="600" height="600">
+    		<source src="sexstud26665.mp4" type="video/mp4">
+	</video>
+    </div>
+</div>
+
+<!-- PHOTOS -->
+<div id="photos" class="section">
+    <h2>📸 Фотки</h2>
+
+    <div class="photos">
+        <img src="file:///C:/Users/HP/Documents/коды/домашняя-эротика-Эротика-безголовые-фигуры-7716724.jpeg">
+        <img src="Nici-Dee-Эротика-пляжная-эротика-4283486.jpeg">
+        <img src="Эротика-домашняя-эротика-красивая-фигура-3474559.jpeg">
+    </div>
+</div>
+
+<!-- DONATE -->
+<div id="donate" class="section">
+    <h2>💸 Донат</h2>
+    <p>сюда можно вставить ссылку на оплату</p>
+</div>
+
+<footer>
+    <nav>
+        <a onclick="show('home')">Главная</a>
+        <a onclick="show('video')">Видео</a>
+        <a onclick="show('photos')">Фотки</a>
+        <a onclick="show('donate')">Донат</a>
+    </nav>
+</footer>
+
+<script>
+function show(id) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+}
+</script>
+
+</body>
+</html>
