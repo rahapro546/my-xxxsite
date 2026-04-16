@@ -11,33 +11,39 @@ body {
     font-family: 'Segoe UI', sans-serif;
     background: #0f0f1a;
     color: white;
-}
-
-/* NAV */
-header, footer {
     display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding: 15px;
-    background: rgba(0,0,0,0.5);
-    backdrop-filter: blur(10px);
-    position: sticky;
 }
 
-header { top: 0; }
-footer { bottom: 0; }
+/* SIDEBAR */
+.sidebar {
+    width: 200px;
+    background: rgba(0,0,0,0.6);
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    gap: 10px;
+}
 
-nav a {
+.sidebar a {
     color: white;
     text-decoration: none;
-    cursor: pointer;
-    padding: 8px 12px;
+    padding: 10px;
     border-radius: 10px;
     background: rgba(255,255,255,0.05);
+    cursor: pointer;
+    text-align: center;
 }
 
-nav a:hover {
-    background: rgba(255,255,255,0.15);
+.sidebar a:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+/* MAIN */
+.main {
+    margin-left: 220px;
+    width: 100%;
 }
 
 /* SECTIONS */
@@ -45,107 +51,172 @@ nav a:hover {
     display: none;
     padding: 40px 20px;
     text-align: center;
-    min-height: 60vh;
 }
 
 .section.active {
     display: block;
 }
 
-/* VIDEO */
-.video-box {
-    margin-top: 20px;
-}
-
-/* PHOTOS */
-.photos {
+/* GRID */
+.video-grid {
     display: flex;
-    justify-content: center;
-    gap: 20px;
     flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
 }
 
-.photos img {
-    width: 300px;
-    height: 190px;
-    object-fit: cover;
+.video-card {
+    width: 180px;
+    height: 110px;
+    background: rgba(255,255,255,0.08);
     border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
     transition: 0.3s;
+    font-size: 14px;
 }
 
-.photos img:hover {
+.video-card:hover {
+    background: rgba(255,255,255,0.2);
     transform: scale(1.05);
 }
 
-/* HERO */
-.hero {
-    padding: 60px 20px;
+/* PLAYER */
+iframe {
+    max-width: 90%;
+    border-radius: 12px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    background: #444;
+    color: white;
+    cursor: pointer;
+    margin-top: 20px;
 }
 </style>
 </head>
 
 <body>
 
-<header>
-    <nav>
-        <a onclick="show('home')">Главная</a>
-        <a onclick="show('video')">Видео</a>
-        <a onclick="show('photos')">Фотки</a>
-        <a onclick="show('donate')">Донат</a>
-    </nav>
-</header>
+<!-- SIDEBAR -->
+<div class="sidebar">
+    <a onclick="show('home')">🏠 Главная</a>
+    <a onclick="show('video1')">🎬 Видео</a>
+    <a onclick="show('video2')">📺 Видео 2</a>
+    <a onclick="show('video3')">🔥 Видео 3</a>
+    <a onclick="show('donate')">💸 Донат</a>
+</div>
+
+<div class="main">
 
 <!-- HOME -->
 <div id="home" class="section active">
-    <div class="hero">
-        <h2>🔥 Мой сайт</h2>
-        <p>Красивый, простой и рабочий</p>
+    <h1>🔥 Мой сайт</h1>
+    <p>Видео-платформа в стиле Netflix 😎</p>
+</div>
+
+<!-- VIDEO 1 -->
+<div id="video1" class="section">
+    <h2>🎬 Азиаточки🔥</h2>
+    <div class="video-grid">
+
+        <div class="video-card" onclick="openVideo('178c9UxO-5j9GMwbxXH_KqXn5hYVa9sxQ')">Видео 1</div>
+        <div class="video-card" onclick="openVideo('1Rju2WLLz-wpcNF3Y7gGh6Rk9t9reCCwb')">Видео 2</div>
+        <div class="video-card" onclick="openVideo('11oJ8OzMZxGzSx24mpv-jZnN9ZXwUwEHf')">Видео 3</div>
+        <div class="video-card" onclick="openVideo('1S8Y6H9ouwOoMJdS69oiXkAhIhkyE8J4x')">Видео 4</div>
+        <div class="video-card" onclick="openVideo('1hVzaxdCuXv3frCXXjZBHQoY2wFqpyPDe')">Видео 5</div>
+        <div class="video-card" onclick="openVideo('1tTGOcR4Xq4TRtNkIb691391PhQ0zRlGn')">Видео 6</div>
+        <div class="video-card" onclick="openVideo('1VgqLcBEae6SzS8x2qVWuxmuVpAfQiKmb')">Видео 7</div>
+        <div class="video-card" onclick="openVideo('1yIyCTCzPu6GMMPjQLFAcH_veCtNiM8Su')">Видео 8</div>
+        <div class="video-card" onclick="openVideo('1o_Dq_fRwL4DllcQAK5Oabjb6wXnkdzHG')">Видео 9</div>
+        <div class="video-card" onclick="openVideo('1B3GATS67u3gYGYgYWcR3B4Zfrpzy-Gl2')">Видео 10</div>
+
     </div>
 </div>
 
-<!-- PHOTOS -->
-<div id="photos" class="section">
-    <h2>📸 Фотки</h2>
+<!-- VIDEO 2 -->
+<div id="video2" class="section">
+    <h2>📺 Diana Rider🔥</h2>
+    <div class="video-grid">
 
-    <div class="photos">
-        <img src="photo2.jpeg">
-        <img src="photo1.jpeg">
-        <img src="photo3.jpeg">
+        <div class="video-card" onclick="openVideo('1yKLox_SfiEQbnKvsfgFFVheP7OOdWoxR')">Видео 1</div>
+        <div class="video-card" onclick="openVideo('13NwxDypO8cngBMiuN-hrTT9qGSm0pJF1')">Видео 2</div>
+        <div class="video-card" onclick="openVideo('1ufKEI-0qZz2jWkFYWnLRLWrsaYdCjSrP')">Видео 3</div>
+        <div class="video-card" onclick="openVideo('11y2o_d09pHlw9mWI8irgtWL73dUdB8XR')">Видео 4</div>
+        <div class="video-card" onclick="openVideo('18UYUjg8NZG4HEGPHatC1_PlM12ku6Ak1')">Видео 5</div>
+        <div class="video-card" onclick="openVideo('1MskzER5t93At4MocprK9pbqn0HHsEEjI')">Видео 6</div>
+        <div class="video-card" onclick="openVideo('1TY12AYIt1Di9jIyil-cBHq2BdS-CSIfw')">Видео 7</div>
+        <div class="video-card" onclick="openVideo('1euvugDd8pYsn1J9HxlE-5I_0kcL4KViq')">Видео 8</div>
+        <div class="video-card" onclick="openVideo('1wNL_PQy_bX2jbHlMrJNFYiXSZIuoUiAy')">Видео 9</div>
+        <div class="video-card" onclick="openVideo('1qJxqSYEbkMfH3fZxhG6UolTuLkWbTPRH')">Видео 10</div>
+
+    </div>
+</div>
+
+<!-- VIDEO 3 -->
+<div id="video3" class="section">
+    <h2>🔥 ...</h2>
+    <div class="video-grid">
+
+        <div class="video-card" onclick="openVideo('B1')">Видео 1</div>
+        <div class="video-card" onclick="openVideo('B2')">Видео 2</div>
+        <div class="video-card" onclick="openVideo('B3')">Видео 3</div>
+        <div class="video-card" onclick="openVideo('B4')">Видео 4</div>
+        <div class="video-card" onclick="openVideo('B5')">Видео 5</div>
+        <div class="video-card" onclick="openVideo('B6')">Видео 6</div>
+        <div class="video-card" onclick="openVideo('B7')">Видео 7</div>
+        <div class="video-card" onclick="openVideo('B8')">Видео 8</div>
+        <div class="video-card" onclick="openVideo('B9')">Видео 9</div>
+        <div class="video-card" onclick="openVideo('B10')">Видео 10</div>
+
     </div>
 </div>
 
 <!-- DONATE -->
 <div id="donate" class="section">
     <h2>💸 Донат</h2>
-    <p>сюда можно вставить ссылку на оплату</p>
+    <p>4400430301550833</p>
 </div>
 
-<footer>
-    <nav>
-        <a onclick="show('home')">Главная</a>
-        <a onclick="show('video')">Видео</a>
-        <a onclick="show('photos')">Фотки</a>
-        <a onclick="show('donate')">Донат</a>
-    </nav>
-</footer>
+<!-- PLAYER -->
+<div id="player" class="section">
+    <h2>🎥 Просмотр</h2>
 
-<!-- VIDEO -->
-<div id="video" class="section">
-    <h2>🎬 Видео</h2>
+    <iframe id="videoFrame"
+        width="720"
+        height="405"
+        allow="autoplay"
+        allowfullscreen>
+    </iframe>
 
-    <iframe 
-  src="https://drive.google.com/file/d/178c9UxO-5j9GMwbxXH_KqXn5hYVa9sxQ/preview"
-  width="640"
-  height="360"
-  allow="autoplay"
-  allowfullscreen>
-</iframe>>
+    <br>
+    <button onclick="back()">⬅ Назад</button>
+</div>
 
+</div>
 
 <script>
+let lastSection = 'home';
+
 function show(id) {
     document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
     document.getElementById(id).classList.add('active');
+    lastSection = id;
+}
+
+function openVideo(id) {
+    document.getElementById('videoFrame').src =
+        "https://drive.google.com/file/d/" + id + "/preview";
+    show('player');
+}
+
+function back() {
+    show(lastSection);
 }
 </script>
 
